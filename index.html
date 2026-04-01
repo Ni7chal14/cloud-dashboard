@@ -1,0 +1,206 @@
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.app{background:#0f1923;padding:0 0 2.5rem;font-family:var(--font-sans)}
+.hero{padding:2rem 2rem 1.5rem;border-bottom:1px solid rgba(255,255,255,.08)}
+.hero-title{font-size:26px;font-weight:500;color:#fff;line-height:1.2;margin-bottom:5px}
+.hero-title span{color:#4ade80}
+.hero-sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:14px}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:11px;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.45)}
+.body{padding:1.5rem 2rem 0}
+.slbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px;font-weight:500}
+.inputs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin-bottom:1.5rem}
+.inp-box{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 14px}
+.inp-lbl{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:5px}
+.inp-box input{background:transparent;border:none;outline:none;color:#fff;font-size:18px;font-weight:500;width:100%;font-family:var(--font-sans)}
+.inp-unit{font-size:10px;color:rgba(255,255,255,.25);margin-top:2px}
+.metrics-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:1.5rem}
+.met{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;padding:12px 14px}
+.met-lbl{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:5px}
+.met-val{font-size:21px;font-weight:500;color:#fff}
+.met-val span{font-size:11px;font-weight:400;color:rgba(255,255,255,.35)}
+.met-sub{font-size:10px;color:rgba(255,255,255,.25);margin-top:2px}
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:1.5rem}
+.pcard{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:1.2rem;position:relative;overflow:hidden}
+.pcard.best{background:rgba(74,222,128,.07);border:1.5px solid #4ade80}
+.pcard-accent{position:absolute;top:0;left:0;right:0;height:3px}
+.pcard-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.pcard-name{font-size:17px;font-weight:500;color:#fff}
+.pcard-full{font-size:11px;color:rgba(255,255,255,.3);margin-top:1px}
+.pbadge{font-size:10px;padding:3px 8px;border-radius:20px;font-weight:500;white-space:nowrap}
+.pbadge-green{background:rgba(74,222,128,.15);color:#4ade80;border:1px solid rgba(74,222,128,.3)}
+.pbadge-blue{background:rgba(96,165,250,.12);color:#60a5fa;border:1px solid rgba(96,165,250,.25)}
+.pbadge-gray{background:rgba(255,255,255,.08);color:rgba(255,255,255,.45);border:1px solid rgba(255,255,255,.12)}
+.cost-num{font-size:28px;font-weight:500;color:#fff;line-height:1}
+.cost-mo{font-size:11px;color:rgba(255,255,255,.3);margin-top:2px;margin-bottom:12px}
+.bdr{display:flex;justify-content:space-between;font-size:11px;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.bdr:last-of-type{border:none}
+.bd-l{color:rgba(255,255,255,.3)}
+.bd-v{color:rgba(255,255,255,.6);font-weight:500}
+.green-row{margin-top:10px}
+.green-lr{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+.green-l{color:rgba(255,255,255,.35)}
+.green-bbg{height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden}
+.green-bf{height:4px;border-radius:2px}
+.green-note{font-size:10px;color:rgba(255,255,255,.25);margin-top:4px}
+.co2r{font-size:10px;color:rgba(255,255,255,.3);margin-top:8px}
+.co2r span{color:rgba(255,255,255,.55);font-weight:500}
+.rec-bar{background:rgba(74,222,128,.06);border:1px solid rgba(74,222,128,.18);border-radius:12px;padding:.9rem 1.1rem;display:flex;gap:12px;align-items:flex-start;margin-bottom:1.5rem}
+.rec-dot{width:8px;height:8px;background:#4ade80;border-radius:50%;margin-top:5px;flex-shrink:0}
+.rec-title{font-size:13px;font-weight:500;color:#4ade80;margin-bottom:2px}
+.rec-text{font-size:12px;color:rgba(255,255,255,.4);line-height:1.6}
+.charts-wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin-bottom:1.5rem}
+.chart-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:1rem 1.25rem}
+.chart-ttl{font-size:11px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+.legend-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.4)}
+.leg-sq{width:9px;height:9px;border-radius:2px;flex-shrink:0}
+</style>
+
+<div class="app">
+  <div class="hero">
+    <div class="hero-title">Cloud Cost &amp; <span>Carbon Footprint</span> Calculator</div>
+    <div class="hero-sub">Compare AWS, GCP &amp; Azure on price and sustainability. Adjust inputs to update all results live.</div>
+    <div class="hero-tags">
+      <span class="tag">Real pricing data</span>
+      <span class="tag">Green score engine</span>
+      <span class="tag">CO₂ estimation</span>
+      <span class="tag">Recommendation system</span>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="slbl">Resource requirements</div>
+    <div class="inputs-grid">
+      <div class="inp-box"><div class="inp-lbl">vCPU cores</div><input type="number" id="vcpu" value="2" min="1" oninput="calc()"><div class="inp-unit">cores</div></div>
+      <div class="inp-box"><div class="inp-lbl">RAM</div><input type="number" id="ram" value="8" min="1" oninput="calc()"><div class="inp-unit">GB</div></div>
+      <div class="inp-box"><div class="inp-lbl">Storage</div><input type="number" id="storage" value="500" min="10" oninput="calc()"><div class="inp-unit">GB</div></div>
+      <div class="inp-box"><div class="inp-lbl">Data transfer</div><input type="number" id="transfer" value="1000" min="0" oninput="calc()"><div class="inp-unit">GB / month</div></div>
+      <div class="inp-box"><div class="inp-lbl">Hours / month</div><input type="number" id="hours" value="720" min="1" max="744" oninput="calc()"><div class="inp-unit">hrs</div></div>
+    </div>
+
+    <div class="slbl">Summary</div>
+    <div class="metrics-row" id="metrics"></div>
+
+    <div class="slbl">Provider breakdown</div>
+    <div class="cards-grid" id="cards"></div>
+
+    <div id="rec"></div>
+
+    <div class="slbl">Graph comparison</div>
+    <div class="charts-wrap">
+      <div class="chart-box">
+        <div class="chart-ttl">Monthly cost breakdown (USD)</div>
+        <div class="legend-row">
+          <span class="leg-item"><span class="leg-sq" style="background:#60a5fa"></span>Compute</span>
+          <span class="leg-item"><span class="leg-sq" style="background:#a78bfa"></span>Storage</span>
+          <span class="leg-item"><span class="leg-sq" style="background:#f59e0b"></span>Transfer</span>
+        </div>
+        <div style="position:relative;height:220px"><canvas id="costChart"></canvas></div>
+      </div>
+      <div class="chart-box">
+        <div class="chart-ttl">Green score vs CO₂ emissions</div>
+        <div class="legend-row">
+          <span class="leg-item"><span class="leg-sq" style="background:#4ade80"></span>Green score</span>
+          <span class="leg-item"><span class="leg-sq" style="background:#f87171"></span>CO₂ kg/mo</span>
+        </div>
+        <div style="position:relative;height:220px"><canvas id="greenChart"></canvas></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const P=[
+  {id:'aws',name:'AWS',full:'Amazon Web Services',computeRate:0.0832,storageRate:0.023,transferRate:0.09,greenScore:72,greenLabel:'Matched renewable energy',accent:'#60a5fa',badgeClass:'pbadge-blue',badgeText:'Mature ecosystem'},
+  {id:'gcp',name:'GCP',full:'Google Cloud Platform',computeRate:0.076,storageRate:0.020,transferRate:0.08,greenScore:95,greenLabel:'Carbon-neutral since 2007',accent:'#4ade80',badgeClass:'pbadge-green',badgeText:'Most sustainable'},
+  {id:'azure',name:'Azure',full:'Microsoft Azure',computeRate:0.087,storageRate:0.018,transferRate:0.087,greenScore:85,greenLabel:'Carbon-negative pledge 2030',accent:'#a78bfa',badgeClass:'pbadge-gray',badgeText:'Enterprise-ready'}
+];
+const KWH=0.005,CO2F=0.386;
+let costChartInst=null,greenChartInst=null;
+
+function gv(){return{vcpu:Math.max(1,+document.getElementById('vcpu').value||2),storage:Math.max(0,+document.getElementById('storage').value||500),transfer:Math.max(0,+document.getElementById('transfer').value||1000),hours:Math.max(1,Math.min(744,+document.getElementById('hours').value||720))}}
+function cp(p,d){const c=p.computeRate*d.vcpu*d.hours,s=p.storageRate*d.storage,t=p.transferRate*d.transfer,tot=c+s+t,e=KWH*d.vcpu*d.hours,co2=e*CO2F*(1-p.greenScore/100)*2.5;return{compute:c,storage:s,transfer:t,total:tot,co2:co2}}
+
+function calc(){
+  const d=gv();
+  const R=P.map(p=>({...p,...cp(p,d)}));
+  const minC=Math.min(...R.map(r=>r.total)),maxC=Math.max(...R.map(r=>r.total));
+
+  document.getElementById('metrics').innerHTML=`
+    <div class="met"><div class="met-lbl">Cheapest option</div><div class="met-val">$${minC.toFixed(0)}<span>/mo</span></div><div class="met-sub">GCP wins on price</div></div>
+    <div class="met"><div class="met-lbl">Max savings</div><div class="met-val">$${(maxC-minC).toFixed(0)}<span>/mo</span></div><div class="met-sub">vs most expensive</div></div>
+    <div class="met"><div class="met-lbl">Energy use</div><div class="met-val">${(KWH*d.vcpu*d.hours).toFixed(1)}<span> kWh</span></div><div class="met-sub">Based on vCPU hours</div></div>`;
+
+  document.getElementById('cards').innerHTML=R.map(r=>`
+    <div class="pcard${r.id==='gcp'?' best':''}">
+      <div class="pcard-accent" style="background:${r.accent}"></div>
+      <div class="pcard-top">
+        <div><div class="pcard-name">${r.name}</div><div class="pcard-full">${r.full}</div></div>
+        <span class="pbadge ${r.badgeClass}">${r.badgeText}</span>
+      </div>
+      <div class="cost-num">$${r.total.toFixed(2)}</div>
+      <div class="cost-mo">estimated / month</div>
+      <div class="bdr"><span class="bd-l">Compute</span><span class="bd-v">$${r.compute.toFixed(2)}</span></div>
+      <div class="bdr"><span class="bd-l">Storage</span><span class="bd-v">$${r.storage.toFixed(2)}</span></div>
+      <div class="bdr"><span class="bd-l">Transfer</span><span class="bd-v">$${r.transfer.toFixed(2)}</span></div>
+      <div class="green-row">
+        <div class="green-lr"><span class="green-l">Green score</span><span style="font-size:11px;font-weight:500;color:${r.accent}">${r.greenScore}/100</span></div>
+        <div class="green-bbg"><div class="green-bf" style="width:${r.greenScore}%;background:${r.accent}"></div></div>
+        <div class="green-note">${r.greenLabel}</div>
+      </div>
+      <div class="co2r">CO<sub>2</sub>: <span>${r.co2.toFixed(2)} kg/mo</span></div>
+    </div>`).join('');
+
+  const best=R.find(r=>r.id==='gcp');
+  document.getElementById('rec').innerHTML=`
+    <div class="rec-bar">
+      <div class="rec-dot"></div>
+      <div><div class="rec-title">Recommendation: GCP</div>
+      <div class="rec-text">Lowest cost ($${best.total.toFixed(2)}/mo) and highest green score (95/100). Carbon-neutral since 2007. Azure is ideal for Microsoft-stack orgs with its 2030 carbon-negative pledge. AWS offers the widest ecosystem for general deployments.</div></div>
+    </div>`;
+
+  updateCharts(R);
+}
+
+function updateCharts(R){
+  const labels=R.map(r=>r.name);
+  const computes=R.map(r=>+r.compute.toFixed(2));
+  const storages=R.map(r=>+r.storage.toFixed(2));
+  const transfers=R.map(r=>+r.transfer.toFixed(2));
+  const greens=R.map(r=>r.greenScore);
+  const co2s=R.map(r=>+r.co2.toFixed(2));
+
+  const gridColor='rgba(255,255,255,0.07)';
+  const tickColor='rgba(255,255,255,0.35)';
+
+  if(costChartInst){costChartInst.data.datasets[0].data=computes;costChartInst.data.datasets[1].data=storages;costChartInst.data.datasets[2].data=transfers;costChartInst.update();return;}
+
+  costChartInst=new Chart(document.getElementById('costChart'),{
+    type:'bar',
+    data:{labels,datasets:[
+      {label:'Compute',data:computes,backgroundColor:'#60a5fa',borderRadius:4,borderSkipped:false},
+      {label:'Storage',data:storages,backgroundColor:'#a78bfa',borderRadius:4,borderSkipped:false},
+      {label:'Transfer',data:transfers,backgroundColor:'#f59e0b',borderRadius:4,borderSkipped:false}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' $'+ctx.parsed.y.toFixed(2)}}},scales:{x:{stacked:true,ticks:{color:tickColor,font:{size:12}},grid:{color:gridColor},border:{color:'transparent'}},y:{stacked:true,ticks:{color:tickColor,font:{size:11},callback:v=>'$'+v},grid:{color:gridColor},border:{color:'transparent'}}}}
+  });
+
+  greenChartInst=new Chart(document.getElementById('greenChart'),{
+    type:'bar',
+    data:{labels,datasets:[
+      {label:'Green score',data:greens,backgroundColor:['rgba(74,222,128,0.85)','rgba(74,222,128,0.85)','rgba(74,222,128,0.85)'],borderRadius:4,borderSkipped:false,yAxisID:'y'},
+      {label:'CO₂ kg/mo',data:co2s,backgroundColor:['rgba(248,113,113,0.7)','rgba(248,113,113,0.7)','rgba(248,113,113,0.7)'],borderRadius:4,borderSkipped:false,yAxisID:'y2'}
+    ]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{
+      x:{ticks:{color:tickColor,font:{size:12}},grid:{color:gridColor},border:{color:'transparent'}},
+      y:{position:'left',min:0,max:100,ticks:{color:'rgba(74,222,128,0.6)',font:{size:11}},grid:{color:gridColor},border:{color:'transparent'},title:{display:true,text:'Score',color:'rgba(74,222,128,0.4)',font:{size:10}}},
+      y2:{position:'right',ticks:{color:'rgba(248,113,113,0.6)',font:{size:11}},grid:{drawOnChartArea:false},border:{color:'transparent'},title:{display:true,text:'kg CO₂',color:'rgba(248,113,113,0.4)',font:{size:10}}}
+    }}
+  });
+}
+
+calc();
+</script>
